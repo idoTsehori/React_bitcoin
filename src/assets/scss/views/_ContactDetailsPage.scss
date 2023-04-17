@@ -1,0 +1,21 @@
+.contact-details {
+  display: grid;
+  margin: auto;
+  margin-block-start: 1em;
+  border: 1px solid black;
+  background-color: rgba(65, 109, 43, 0.806);
+  border-radius: 10px;
+  width: max-content;
+  grid-template-rows: 55px 270px 60px 60px 60px;
+  padding: 0.5em;
+  font-size: 1.4em;
+  justify-items: center;
+  align-items: center;
+
+  .actions-btns {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
