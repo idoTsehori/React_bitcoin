@@ -1,49 +1,35 @@
+// import { contactService } from '../services/contact.service'
+import '../assets/scss/global.scss'
 import { Component } from 'react'
-import { contactService } from '../services/contact.service'
 import { ContactList } from '../cmps/ContactList.jsx'
 import { ContactFilter } from '../cmps/ContactFilter'
-import { ContactDetailsPage } from '../views/ContactDetailsPage'
-import '../assets/scss/global.scss'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { loadContacts, removeContact, setFilterBy } from '../store/actions/contact.actions'
 
-export class ContactPage extends Component {
-  state = {
-    contacts: null,
-    selectedContactId: null,
-    filterBy: {
-      name: '',
-    },
+class _ContactPage extends Component {
+  componentDidMount() {
+    this.props.loadContacts()
   }
 
   onRemoveContact = async (contactId) => {
     try {
-      await contactService.deleteContact(contactId)
-      this.setState(({ contacts }) => ({
-        contacts: contacts.filter((contact) => contact._id !== contactId),
-      }))
+      this.props.removeContact(contactId)
     } catch (error) {
       console.log('error:', error)
     }
-  }
-
-  componentDidMount = async () => {
-    this.loadContacts()
-  }
-
-  loadContacts = async () => {
-    const contacts = await contactService.getContacts(this.state.filterBy)
-    this.setState({ contacts })
   }
 
   onSelectContact = (contactId) => {
     this.setState({ selectedContactId: contactId })
   }
   onChangeFilter = (filterBy) => {
-    this.setState({ filterBy: { ...filterBy } }, this.loadContacts)
+    this.props.setFilterBy(filterBy)
+    this.props.loadContacts()
   }
 
   render() {
-    const { contacts, selectedContactId, filterBy } = this.state
+    const { contacts, filterBy } = this.props
     if (!contacts) return <div>Loading...</div>
     return (
       <section className="contact-page-container">
@@ -60,3 +46,16 @@ export class ContactPage extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => ({
+  contacts: state.contacts,
+  filterBy: state.filterBy,
+})
+
+const mapDispatchToProps = {
+  loadContacts,
+  removeContact,
+  setFilterBy,
+}
+
+export const ContactPage = connect(mapStateToProps, mapDispatchToProps)(_ContactPage)

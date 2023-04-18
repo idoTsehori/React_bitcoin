@@ -2,6 +2,8 @@ import { storageService } from '../services/storage.service'
 
 export const userService = {
   getUser,
+  getEmptyUser,
+  createNewUser,
 }
 const KEY = 'user'
 const user = {
@@ -9,7 +11,18 @@ const user = {
   coins: 100,
   moves: [],
 }
-// storageService.store(KEY, user)
+
+function createNewUser(user) {
+  storageService.store(KEY, user)
+}
+
+function getEmptyUser() {
+  return {
+    name: '',
+    coins: 100,
+    moves: [],
+  }
+}
 
 function getUser() {
   return user

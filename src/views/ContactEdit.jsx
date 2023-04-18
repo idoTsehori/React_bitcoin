@@ -48,7 +48,6 @@ export class ContactEdit extends Component {
 
   render() {
     const { contact } = this.state
-    console.log('contact:', contact)
     const { name, email, phone } = contact
     return (
       <section className="contact-edit">

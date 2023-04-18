@@ -39,3 +39,9 @@ export class HomePage extends Component {
     )
   }
 }
+
+// const mapStateToProps = (state) => ({
+//   user: state.user,
+// })
+
+// export const ContactPage = connect(mapStateToProps)(_ContactPage)

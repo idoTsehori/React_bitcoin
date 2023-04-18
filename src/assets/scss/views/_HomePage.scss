@@ -1,19 +1,19 @@
 .home-title {
-  color: rgb(142, 240, 139);
+  // color: white;
   font-size: 3em;
   text-align: center;
   margin: auto;
   margin-block-start: 0.5em;
   font-weight: bold;
-  background-color: rgba(79, 55, 55, 0.842);
+  background-color: #efb3ff54;
   // width: max-content;
   border-radius: 35px;
   padding: 0.3em;
 }
 
 .user-details {
-  border: 1px solid black;
-  background-color: rgba(53, 77, 62, 0.866);
+  border: 1px solid rgb(67, 215, 8);
+  background-color: #54026acf;
   border-radius: 15px;
   width: max-content;
   padding: 1em;
@@ -21,4 +21,5 @@
   margin-block-start: 0.7em;
   line-height: 3em;
   font-size: 2em;
+  box-shadow: 10px 10px 13px -7px #000000, -1px 18px 15px 4px rgba(75, 1, 95, 0.37);
 }

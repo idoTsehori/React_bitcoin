@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { contactService } from '../services/contact.service'
+import { TransferFund } from '../cmps/TransferFund.jsx'
 import '../assets/scss/global.scss'
 import { Link } from 'react-router-dom'
 
@@ -35,29 +36,25 @@ export class ContactDetailsPage extends Component {
     const { contact } = this.state
     if (!contact) return <div>Loading...</div>
     return (
-      <section className="contact-details">
-        <section className="actions-btns">
-          <button title="back to contacts" onClick={this.onBack}>
-            Back
-          </button>
-          <div className="flex">
-            <Link title="edit contact" to={`/contact/edit/${contact._id}`}>
-              ✏️
-            </Link>
-
-            <button
-              title="delete contact"
-              // onClick={() => onRemoveContact(contact._id)}
-            >
-              ✖️
+      <section className="contact-details-page flex">
+        <section className="contact-details">
+          <section className="actions-btns">
+            <button title="back to contacts" onClick={this.onBack}>
+              Back
             </button>
-          </div>
+            <div className="flex">
+              <Link title="edit contact" to={`/contact/edit/${contact._id}`}>
+                ✏️
+              </Link>
+            </div>
+          </section>
+          <img src={contact.img} alt="img" />
+          <h3>Name: {contact.name}</h3>
+          <h4>Phone: {contact.phone}</h4>
+          <h4>Email: {contact.email}</h4>
+          {/* <button onClick={this.onBack}>Back</button> */}
         </section>
-        <img src={contact.img} alt="img" />
-        <h3>Name: {contact.name}</h3>
-        <h4>Phone: {contact.phone}</h4>
-        <h4>Email: {contact.email}</h4>
-        {/* <button onClick={this.onBack}>Back</button> */}
+        <TransferFund contact={contact} />
       </section>
     )
   }

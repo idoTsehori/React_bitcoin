@@ -150,7 +150,9 @@ function getContacts(filterBy = null) {
     if (filterBy && filterBy.name) {
       contactsToReturn = filter(filterBy.name)
     }
-    resolve(sort(contactsToReturn))
+    console.log('contactsToReturn:', contactsToReturn)
+    // resolve(sort(contactsToReturn))
+    return resolve(contactsToReturn)
   })
 }
 
