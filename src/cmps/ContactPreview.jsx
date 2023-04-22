@@ -19,7 +19,6 @@ export function ContactPreview({ contact, onRemoveContact }) {
   // }, [contact.img])
 
   function deleteContact(ev) {
-    console.log('ev:', ev)
     ev.stopPropagation()
     onRemoveContact(contact._id)
   }

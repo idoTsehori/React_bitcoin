@@ -19,10 +19,10 @@ function App() {
         <AppHeader />
         <main className="main-layout">
           <Switch>
-            <Route path="/about" component={About} />
-            <Route path="/signup" component={SignupPage} />
             <Route path="/contact/edit/:id?" component={ContactEdit} />
             <Route path="/contact/:id" component={ContactDetailsPage} />
+            <Route path="/about" component={About} />
+            <Route path="/signup" component={SignupPage} />
             <Route path="/chart" component={StatisticPage} />
             <Route path="/contacts" component={ContactPage} />
             <Route path="/" component={HomePage} />

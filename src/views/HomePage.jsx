@@ -21,6 +21,7 @@ class _HomePage extends Component {
   componentDidMount() {
     this.loadUser()
   }
+
   loadUser = async () => {
     const user = userService.getUser()
     if (!user) return

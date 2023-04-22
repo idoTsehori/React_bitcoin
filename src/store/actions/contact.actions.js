@@ -17,7 +17,7 @@ export function loadContacts() {
 }
 
 export function removeContact(contactId) {
-  return async (dispatch, getState) => {
+  return async (dispatch) => {
     try {
       await contactService.deleteContact(contactId)
       const action = {

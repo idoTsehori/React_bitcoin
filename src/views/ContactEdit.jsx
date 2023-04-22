@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import { contactService } from '../services/contact.service'
+import { Link } from 'react-router-dom'
 import '../assets/scss/global.scss'
 
 export class ContactEdit extends Component {
@@ -9,13 +10,13 @@ export class ContactEdit extends Component {
 
   async componentDidMount() {
     const contactId = this.props.match.params.id
-    if (contactId) {
-      try {
-        const contact = await contactService.getContactById(contactId)
-        this.setState({ contact })
-      } catch (error) {
-        console.log('error:', error)
-      }
+    if (!contactId) return
+
+    try {
+      const contact = await contactService.getContactById(contactId)
+      this.setState({ contact })
+    } catch (error) {
+      console.log('error:', error)
     }
   }
 
@@ -83,6 +84,7 @@ export class ContactEdit extends Component {
 
           <button>Save</button>
         </form>
+        <Link to={'/contacts'}>Back</Link>
       </section>
     )
   }

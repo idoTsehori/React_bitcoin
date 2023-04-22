@@ -14,7 +14,7 @@ export class ContactDetailsPage extends Component {
     this.loadContact()
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     if (prevProps.match.params.id !== this.props.match.params.id) {
       this.loadContact()
     }
@@ -28,10 +28,9 @@ export class ContactDetailsPage extends Component {
       console.log('error:', error)
     }
   }
-  onBack = () => {
-    console.log('hey')
-    this.props.history.push('/contacts')
-  }
+  // onBack = () => {
+  //   this.props.history.push('/contacts')
+  // }
 
   render() {
     const { contact } = this.state
@@ -41,9 +40,10 @@ export class ContactDetailsPage extends Component {
       <section className="contact-details-page flex">
         <section className="contact-details">
           <section className="actions-btns">
-            <button title="back to contacts" onClick={this.onBack}>
+            {/* <button title="back to contacts" onClick={this.onBack}>
               Back
-            </button>
+            </button> */}
+            <Link to={'/contacts'}>Back</Link>
             <div className="flex">
               <Link title="edit contact" to={`/contact/edit/${contact._id}`}>
                 ✏️
