@@ -6,17 +6,17 @@ export function ContactPreview({ contact, onRemoveContact }) {
   const [dominantColor, setDominantColor] = useState(null)
   const history = useHistory()
 
-  useEffect(() => {
-    const colorThief = new ColorThief()
+  // useEffect(() => {
+  //   const colorThief = new ColorThief()
 
-    const image = new Image()
-    image.crossOrigin = 'anonymous' // Set crossOrigin attribute
-    image.onload = () => {
-      const color = colorThief.getColor(image)
-      setDominantColor(`rgb(${color.join(', ')})`)
-    }
-    image.src = contact.img
-  }, [contact.img])
+  //   const image = new Image()
+  //   image.crossOrigin = 'anonymous' // Set crossOrigin attribute
+  //   image.onload = () => {
+  //     const color = colorThief.getColor(image)
+  //     setDominantColor(`rgb(${color.join(', ')})`)
+  //   }
+  //   image.src = contact.img
+  // }, [contact.img])
 
   function deleteContact(ev) {
     console.log('ev:', ev)
@@ -28,7 +28,8 @@ export function ContactPreview({ contact, onRemoveContact }) {
     <article
       onClick={() => history.push(`/contact/${contact._id}`)}
       className="contact-preview flex"
-      style={{ backgroundColor: dominantColor }}>
+      // style={{ backgroundColor: dominantColor }}
+    >
       <button onClick={deleteContact} title="delete contact" className="delete-contact">
         X
       </button>

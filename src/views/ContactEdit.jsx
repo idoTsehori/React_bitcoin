@@ -12,7 +12,6 @@ export class ContactEdit extends Component {
     if (contactId) {
       try {
         const contact = await contactService.getContactById(contactId)
-        console.log('contact:', contact)
         this.setState({ contact })
       } catch (error) {
         console.log('error:', error)
@@ -24,7 +23,7 @@ export class ContactEdit extends Component {
     ev.preventDefault()
     try {
       await contactService.saveContact({ ...this.state.contact })
-      this.props.history.push('/')
+      this.props.history.push('/contacts')
     } catch (error) {
       console.log('error:', error)
     }

@@ -4,8 +4,7 @@ import { REMOVE_CONTACT, SET_CONTACTS, SET_FILTER_BY } from '../reducers/contact
 export function loadContacts() {
   return async (dispatch, getState) => {
     try {
-      const contacts = await contactService.getContacts(getState().filterBy)
-      console.log('contacts:', contacts)
+      const contacts = await contactService.getContacts(getState().contactReducer.filterBy)
       const action = {
         type: SET_CONTACTS,
         contacts,

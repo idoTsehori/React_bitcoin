@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { contactService } from '../services/contact.service'
 import { TransferFund } from '../cmps/TransferFund.jsx'
+import { MovesList } from '../cmps/MovesList.jsx'
 import '../assets/scss/global.scss'
 import { Link } from 'react-router-dom'
 
@@ -34,6 +35,7 @@ export class ContactDetailsPage extends Component {
 
   render() {
     const { contact } = this.state
+    // const user = userService.getUser()
     if (!contact) return <div>Loading...</div>
     return (
       <section className="contact-details-page flex">
@@ -54,7 +56,11 @@ export class ContactDetailsPage extends Component {
           <h4>Email: {contact.email}</h4>
           {/* <button onClick={this.onBack}>Back</button> */}
         </section>
-        <TransferFund contact={contact} />
+
+        <section className="transfer-fund">
+          <TransferFund contact={contact} />
+          <MovesList contact={contact} />
+        </section>
       </section>
     )
   }

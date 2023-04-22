@@ -5,7 +5,6 @@ export const UPDATE_CONTACT = 'UPDATE_CONTACT'
 export const SET_FILTER_BY = 'SET_FILTER_BY'
 
 const INITIAL_STATE = {
-  user: null,
   contacts: null,
   filterBy: {
     name: '',
@@ -37,7 +36,7 @@ export function contactReducer(state = INITIAL_STATE, action = {}) {
     case SET_FILTER_BY:
       return {
         ...state,
-        flterBy: { ...action.filterBy },
+        filterBy: { ...action.filterBy },
       }
 
     default:

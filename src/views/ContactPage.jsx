@@ -1,4 +1,3 @@
-// import { contactService } from '../services/contact.service'
 import '../assets/scss/global.scss'
 import { Component } from 'react'
 import { ContactList } from '../cmps/ContactList.jsx'
@@ -23,6 +22,7 @@ class _ContactPage extends Component {
   onSelectContact = (contactId) => {
     this.setState({ selectedContactId: contactId })
   }
+
   onChangeFilter = (filterBy) => {
     this.props.setFilterBy(filterBy)
     this.props.loadContacts()
@@ -32,7 +32,7 @@ class _ContactPage extends Component {
     const { contacts, filterBy } = this.props
     if (!contacts) return <div>Loading...</div>
     return (
-      <section className="contact-page-container">
+      <section className="contact-page-container full">
         <section className="contact-page-btns">
           <ContactFilter filterBy={filterBy} onChangeFilter={this.onChangeFilter} />
           <Link to={`/contact/edit`}>New Contact</Link>
@@ -48,8 +48,8 @@ class _ContactPage extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  contacts: state.contacts,
-  filterBy: state.filterBy,
+  contacts: state.contactReducer.contacts,
+  filterBy: state.contactReducer.filterBy,
 })
 
 const mapDispatchToProps = {

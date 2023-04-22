@@ -127,7 +127,10 @@ addImgsToContacts()
 
 function addImgsToContacts() {
   contacts.forEach(
-    (contact) => (contact.img = `https://robohash.org/${contact._id}?gravatar=hashed`)
+    (contact) =>
+      (contact.img =
+        // `https://robohash.org/${contact._id}?gravatar=hashed`
+        `https://robohash.org/set_set5/${contact._id}`)
   )
 }
 
@@ -150,8 +153,6 @@ function getContacts(filterBy = null) {
     if (filterBy && filterBy.name) {
       contactsToReturn = filter(filterBy.name)
     }
-    console.log('contactsToReturn:', contactsToReturn)
-    // resolve(sort(contactsToReturn))
     return resolve(contactsToReturn)
   })
 }

@@ -1,17 +1,20 @@
+export const SET_USER = 'SET_USER'
+
 const INITIAL_STATE = {
-  user: {
-    name: 'Yoyo',
-    coins: 100,
-    moves: [],
-  },
+  // user: {
+  //   name: '',
+  //   coins: null,
+  //   moves: [],
+  // },
+  user: null,
 }
 
-export function userreducer(state = INITIAL_STATE, action = {}) {
+export function userReducer(state = INITIAL_STATE, action = {}) {
   switch (action.type) {
-    case value:
-      break
+    case SET_USER:
+      return { ...state, user: action.user }
 
     default:
-      break
+      return state
   }
 }

@@ -4,7 +4,7 @@ function _AppHeader() {
   return (
     <header className="main-header flex space-between align-center">
       <NavLink className="logo" exact to="/">
-        Bitcoin
+        MissCoin
       </NavLink>
       <nav className="main-nav">
         <ul className="main-menu clean-list">
